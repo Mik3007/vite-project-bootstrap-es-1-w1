@@ -1,0 +1,44 @@
+.nav-bg {
+    background-color: rgb(45, 113, 100);
+    color: white;
+}
+
+.card-book-img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+}
+
+.card {
+    transition: transform 0.3s ease-in-out;
+    height: 250rem;
+    width: 17rem;
+}
+
+.card:hover {
+    transform: scale(1.1);
+}
+
+.div-button {
+    margin: 0 auto;
+
+}
+
+.input-name-add {
+    width: 150px;
+}
+
+.button-del-mod {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.hero{
+    background-image: url('../src/assets/books-green-jewel-background-world-book-day_893737-13286.avif');
+    margin-bottom: 40px;
+}
+
+.commentArea {
+    background-color: rgb(33, 37, 41);
+}
