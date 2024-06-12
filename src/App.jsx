@@ -20,13 +20,7 @@ function App() {
 
   const [type, setType] = useState('horror');
   const [search, setSearch] = useState('');
-  const genres = {
-    fantasy,
-    history,
-    horror,
-    romance,
-    scifi
-  };
+  const genres = { fantasy, history, horror, romance, scifi };
 
   return (
     <>

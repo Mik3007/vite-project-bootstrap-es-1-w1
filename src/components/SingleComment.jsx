@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ListGroup, ListGroupItem } from 'react-bootstrap';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function SingleComment({ review, reviews, setReviews }) {
@@ -30,9 +31,15 @@ export default function SingleComment({ review, reviews, setReviews }) {
   return (
     <>
       {loader && <Spinner className=' text-bg-danger' animation="border" role="status"></Spinner>}
-      <li key={review._id} className='text-light'>{review.comment}
-        <button className='button-del-mod bg-success' onClick={() => UpdateComment(review._id, prompt("new review:", review.comment))}>Edit</button>
-        <button className='button-del-mod bg-danger' onClick={() => DeleteComment(review._id)}>Delete</button></li>
+      <ListGroup className='d-flex'>
+      <ListGroupItem key={review._id}>
+         - {review.comment} / rate: {review.rate}
+        <div className='float-end'>
+        <button className='rounded-3 mx-3' onClick={() => UpdateComment(review._id, prompt("new review:", review.comment))}>Edit</button>
+        <button className='rounded-3' onClick={() => DeleteComment(review._id)}>Delete</button>
+        </div>
+        </ListGroupItem>
+      </ListGroup>
     </>
   )
 }

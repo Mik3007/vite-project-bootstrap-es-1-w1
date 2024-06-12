@@ -11,7 +11,7 @@ function MyNavbar({search, setSearch}) {
   return (
     <Navbar expand="lg" className="nav-bg">
       <Container>
-        <Navbar.Brand href="#home" className='fs-2'><img src="../src/assets/icons8-educazione-64.png" alt="logo" />LiBraRy</Navbar.Brand>
+        <Link className='nav-link'><Navbar.Brand href="/" className='fs-2'><img src="../src/assets/icons8-educazione-64.png" alt="logo" />LiBraRy</Navbar.Brand></Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

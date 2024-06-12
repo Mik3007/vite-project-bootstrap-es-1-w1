@@ -12,7 +12,7 @@ function SingleBook({ book, selected, setSelected }) {
         <Card.Img className='card-book-img pt-2' variant="top" src={book.img} />
         <Card.Body className='bs-secondary'>
           <Card.Title>{book.title}</Card.Title> 
-          <Link to={`/detail/${book.asin}`}>Details</Link>
+          <Link className='text-decoration-none ' to={`/detail/${book.asin}`}>Details</Link>
         </Card.Body>
       </Card>
     </Col>
