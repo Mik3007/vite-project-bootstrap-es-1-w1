@@ -6,9 +6,9 @@ import CommentArea from './CommentArea';
 
 
 
-function AllTheBooks({ books, search }) {
+function AllTheBooks({ books , search }) {
 
-  const [selected, setSelected] = useState("")
+  const [selected, setSelected] = useState([""])
 
   return (
       <Row>

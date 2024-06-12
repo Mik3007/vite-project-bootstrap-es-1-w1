@@ -30,7 +30,7 @@ export default function SingleComment({ review, reviews, setReviews }) {
   return (
     <>
       {loader && <Spinner className=' text-bg-danger' animation="border" role="status"></Spinner>}
-      <li key={review._id} className='text-danger'>{review.comment}
+      <li key={review._id} className='text-light'>{review.comment}
         <button className='button-del-mod bg-success' onClick={() => UpdateComment(review._id, prompt("new review:", review.comment))}>Edit</button>
         <button className='button-del-mod bg-danger' onClick={() => DeleteComment(review._id)}>Delete</button></li>
     </>

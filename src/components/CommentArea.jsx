@@ -23,7 +23,7 @@ export default function CommentArea({ asin }) {
                 setReviews(data)
                 setLoader(false)
             })
-            .catch(error => console.error(error, "errore"))
+            .catch(error => console.error('Error:', error))
     }, [asin])
 
     return (

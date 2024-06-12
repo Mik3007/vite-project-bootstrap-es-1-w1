@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
+import { Link } from 'react-router-dom';
 
 function SingleBook({ book, selected, setSelected }) {
 
@@ -11,6 +12,7 @@ function SingleBook({ book, selected, setSelected }) {
         <Card.Img className='card-book-img pt-2' variant="top" src={book.img} />
         <Card.Body className='bs-secondary'>
           <Card.Title>{book.title}</Card.Title> 
+          <Link to={`/detail/${book.asin}`}>Details</Link>
         </Card.Body>
       </Card>
     </Col>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyNavbar from './components/MyNavbar';
@@ -11,30 +11,38 @@ import scifi from './books/scifi.json';
 import MyFooter from './components/MyFooter'
 import Welcome from './components/Welcome';
 import GenreButtons from './components/Button';
-import { ThemeContext } from './modules/Contexts';
 import { Container } from 'react-bootstrap';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import ErrorPage from './Pages/ErrorPage';
+import BookDetails from './Pages/BookDetails';
 
 function App() {
 
-  const [type, setType] = useState ('horror');
+  const [type, setType] = useState('horror');
   const [search, setSearch] = useState('');
-  const [theme, setTheme] = useState('light');
+  const genres = {
+    fantasy,
+    history,
+    horror,
+    romance,
+    scifi
+  };
 
   return (
     <>
-    <ThemeContext.Provider value ={[theme, setTheme]}>
-      <MyNavbar search={search} setSearch={setSearch} />
-      <Welcome/>
-      <Container>
-      <GenreButtons setType={setType} />
-      {type === 'fantasy' && <AllTheBooks books={fantasy} search={search}/>}
-      {type === 'history' && <AllTheBooks books={history} search={search}/>}
-      {type === 'horror' && <AllTheBooks books={horror} search={search}/>}
-      {type === 'romance' && <AllTheBooks books={romance} search={search}/>}
-      {type === 'scifi' && <AllTheBooks books={scifi} search={search}/>}
-      </Container>
-      <MyFooter/>
-    </ThemeContext.Provider>
+      <Router>
+        <MyNavbar search={search} setSearch={setSearch} />
+        <Welcome />
+        <Container>
+          <GenreButtons setType={setType} />
+        <Routes>
+        <Route path="/" element={<AllTheBooks books={genres[type]} search={search} />} />
+          <Route path='/detail/:asin' element={<BookDetails />} />
+          <Route path='*' element={<ErrorPage />} />
+        </Routes>
+        </Container>
+        <MyFooter />
+      </Router>
     </>
   )
 }
