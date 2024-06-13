@@ -7,8 +7,10 @@ import fantasy from '../books/fantasy.json';
 import romance from '../books/romance.json';
 import scifi from '../books/scifi.json';
 import CommentArea from "../components/CommentArea";
+import { useNavigate } from "react-router-dom";
 
 export default function BookDetails() {
+  const navigate = useNavigate();
   const { asin } = useParams();
   const allBooks = [...history, ...fantasy, ...horror, ...romance, ...scifi];
   console.log(allBooks);
@@ -28,6 +30,10 @@ export default function BookDetails() {
               variant="top"
               src={detailsbook.img}
             />
+            <div className="d-flex justify-content-center mt-4 mb-2">
+              <button className="btn btn-outline-primary" onClick={() => navigate('/')}>Home</button>
+              <button className="btn btn-outline-secondary mx-1">Add To Cart</button>
+            </div>
           </Card>
         </Col>
         <Col md={3} className="bg-dark text-light text-center mt-3 rounded-2 h-25" >

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 
 const urlAddComment = "https://striveschool-api.herokuapp.com/api/comments/";
 
@@ -37,7 +38,7 @@ export default function AddComment({ asin, reviews, setReviews }) {
   };
 
   return (
-    <div className='px-2' onClick={(e) => e.stopPropagation()}>
+    <div className='px-2 ms-4' onClick={(e) => e.stopPropagation()}>
       <h4 className='text-light'>Add Comment</h4>
       <form onSubmit={handleSubmit}>
         <div>
@@ -64,7 +65,7 @@ export default function AddComment({ asin, reviews, setReviews }) {
             required
           />
         </div>
-        <button className='mt-2 bg-black text-light' type="submit">Add comment</button>
+        <Button className='mt-2 my-2' variant="success" type="submit">Add comment</Button>
       </form>
     </div>
   );

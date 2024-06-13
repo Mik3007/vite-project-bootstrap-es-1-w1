@@ -15,7 +15,7 @@ function MyNavbar({search, setSearch}) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className='button-home-error' to='/'>Home</Link>
+            <Link className='nav-link' to='/'>Home</Link>
           </Nav>
           <Form.Control
                   className='w-25 rounded-4 text-bg-info' 
