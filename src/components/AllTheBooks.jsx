@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Row from 'react-bootstrap/Row';
 import SIngleBook from './SIngleBook';
 import Col from 'react-bootstrap/Col';
-import CommentArea from './CommentArea';
 
 
 
