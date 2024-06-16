@@ -8,6 +8,7 @@ import romance from '../books/romance.json';
 import scifi from '../books/scifi.json';
 import CommentArea from "../components/CommentArea";
 import { useNavigate } from "react-router-dom";
+import EditReview from "./EditReview";
 
 export default function BookDetails() {
   const navigate = useNavigate();
@@ -44,6 +45,7 @@ export default function BookDetails() {
         </Col>
         <Col md={6} className="mt-3">
           <CommentArea asin={asin} />
+          <EditReview/>
         </Col>
       </Row>
     </Container>

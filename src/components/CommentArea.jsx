@@ -15,7 +15,7 @@ export default function CommentArea({ asin }) {
         setLoader(true);
         fetch(urlReviews + asin + "/comments/", {
             headers: {
-                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhNDgwNDBiM2IyNTAwMTUxYjU0NmMiLCJpYXQiOjE3MTc0MjI5NjgsImV4cCI6MTcxODYzMjU2OH0.wyHzrOTXvnCh3pVUw6Db23k69j6DI3eyb0LrrYnGvWM"
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhNDgwNDBiM2IyNTAwMTUxYjU0NmMiLCJpYXQiOjE3MTg1NDMyMDcsImV4cCI6MTcxOTc1MjgwN30.KZZCeMrDqdcojHeqccqyjSZi6vP5Bb7drHbALpJFJ5k"
             }
         })
             .then(response => response.json())
@@ -24,10 +24,10 @@ export default function CommentArea({ asin }) {
                 setLoader(false)
             })
             .catch(error => console.error('Error:', error))
-    }, [asin])
+    }, [asin]);
 
     return (
-        <div className='commentArea'>
+        <div data-testid={'reviews-book'} className='commentArea'>
             {loader && <Spinner animation="border" role="status"></Spinner>}
             <h4 className='text-light px-2'>Reviews</h4>
             <CommentList reviews={reviews} setReviews={setReviews} />

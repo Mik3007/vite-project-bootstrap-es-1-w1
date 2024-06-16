@@ -17,8 +17,7 @@ function AllTheBooks({ books , search }) {
               .filter(book => book.title.toLowerCase().includes(search.toLowerCase()))
               .map(book => (<SIngleBook key={book.asin} book={book} selected={selected} setSelected={setSelected} />))}
           </Row>
-        </Col>
-        
+        </Col>        
       </Row>
   )
 };

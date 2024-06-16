@@ -5,13 +5,14 @@
 
 .card-book-img {
     max-width: 100%;
-    max-height: 300px;
+    max-height: 340px;
     object-fit: contain;
 }
 
 .card {
     transition: transform 0.3s ease-in-out;
-    height: 250rem;
+    box-shadow: -8px 8px 8px rgba(43, 43, 43, 0.1);
+    min-height: 452px;
     width: 17rem;
 }
 
@@ -58,3 +59,11 @@
     background-color: green;
     color: white;
 }
+
+#card-single-book {
+    background-color:rgb(111, 237, 214);
+}
+
+.card-selected {
+    border: 2px solid red !important;
+  }

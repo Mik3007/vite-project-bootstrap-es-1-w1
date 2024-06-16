@@ -10,7 +10,7 @@ export default function SingleComment({ review, reviews, setReviews }) {
     fetch(`https://striveschool-api.herokuapp.com/api/comments/${id}`, {
       method: "PUT",
       headers: {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhNDgwNDBiM2IyNTAwMTUxYjU0NmMiLCJpYXQiOjE3MTc0MjI5NjgsImV4cCI6MTcxODYzMjU2OH0.wyHzrOTXvnCh3pVUw6Db23k69j6DI3eyb0LrrYnGvWM",
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhNDgwNDBiM2IyNTAwMTUxYjU0NmMiLCJpYXQiOjE3MTg1NDMyMDcsImV4cCI6MTcxOTc1MjgwN30.KZZCeMrDqdcojHeqccqyjSZi6vP5Bb7drHbALpJFJ5k",
         "Content-Type": "application/json",
       },
       body: JSON.stringify({ comment: newReview })
@@ -32,7 +32,7 @@ export default function SingleComment({ review, reviews, setReviews }) {
     <>
       {loader && <Spinner className=' text-bg-danger' animation="border" role="status"></Spinner>}
       <ListGroup className='d-flex'>
-      <ListGroupItem key={review._id} className='me-4 my-2 text-success'>
+      <ListGroupItem className='me-4 my-2 text-success' data-testid="single-comment">
          - {review.comment} / rate: {review.rate}
         <div className='float-end'>
         <Button className='rounded-3 mx-3' variant="outline-info" onClick={() => UpdateComment(review._id, prompt("new review:", review.comment))}>Edit</Button>
