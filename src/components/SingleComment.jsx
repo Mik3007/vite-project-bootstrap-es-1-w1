@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Button, ListGroup, ListGroupItem } from 'react-bootstrap';
+import { PatchPlusFill, Star, Trash } from 'react-bootstrap-icons';
 import Spinner from 'react-bootstrap/Spinner';
 
 export default function SingleComment({ review, reviews, setReviews }) {
@@ -24,19 +25,20 @@ export default function SingleComment({ review, reviews, setReviews }) {
     fetch(`https://striveschool-api.herokuapp.com/api/comments/${id}`, {
       method: "DELETE",
       headers: {
-        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhNDgwNDBiM2IyNTAwMTUxYjU0NmMiLCJpYXQiOjE3MTc0MjI5NjgsImV4cCI6MTcxODYzMjU2OH0.wyHzrOTXvnCh3pVUw6Db23k69j6DI3eyb0LrrYnGvWM",
+        "Authorization": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjNhNDgwNDBiM2IyNTAwMTUxYjU0NmMiLCJpYXQiOjE3MTg1NDMyMDcsImV4cCI6MTcxOTc1MjgwN30.KZZCeMrDqdcojHeqccqyjSZi6vP5Bb7drHbALpJFJ5k",
       }
     }).then(() => setReviews(reviews.filter((review) => review._id !== id)));
   }
   return (
     <>
       {loader && <Spinner className=' text-bg-danger' animation="border" role="status"></Spinner>}
-      <ListGroup className='d-flex'>
-      <ListGroupItem className='me-4 my-2 text-success' data-testid="single-comment">
-         - {review.comment} / rate: {review.rate}
-        <div className='float-end'>
-        <Button className='rounded-3 mx-3' variant="outline-info" onClick={() => UpdateComment(review._id, prompt("new review:", review.comment))}>Edit</Button>
-        <Button className='rounded-3' variant="outline-danger" onClick={() => DeleteComment(review._id)}>Delete</Button>
+      <ListGroup className='d-flex flex-column'>
+      <ListGroupItem className='my-2 text-success bg-dark' data-testid="single-comment">
+       <div className='me-1'>{review.comment}</div> 
+       {Array.from({length: review.rate}).map(rate => <Star className='fs-5' />)}
+        <div>
+        <Button className='rounded-3 mx-3 mt-2' variant="outline-info" onClick={() => UpdateComment(review._id, prompt("new review:", review.comment))}><PatchPlusFill/></Button>
+        <Button className='rounded-3 mt-2' variant="outline-danger" onClick={() => DeleteComment(review._id)}><Trash/></Button>
         </div>
         </ListGroupItem>
       </ListGroup>

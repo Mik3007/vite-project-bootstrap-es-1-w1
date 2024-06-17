@@ -6,9 +6,7 @@ import horror from '../books/horror.json';
 import fantasy from '../books/fantasy.json';
 import romance from '../books/romance.json';
 import scifi from '../books/scifi.json';
-import CommentArea from "../components/CommentArea";
 import { useNavigate } from "react-router-dom";
-import EditReview from "./EditReview";
 
 export default function BookDetails() {
   const navigate = useNavigate();
@@ -33,7 +31,6 @@ export default function BookDetails() {
             />
             <div className="d-flex justify-content-center mt-4 mb-2">
               <button className="btn btn-outline-primary" onClick={() => navigate('/')}>Home</button>
-              <button className="btn btn-outline-secondary mx-1">Add To Cart</button>
             </div>
           </Card>
         </Col>
@@ -42,10 +39,6 @@ export default function BookDetails() {
           <p>Title : {detailsbook.title} </p>
           <p>Category: {detailsbook.category}</p>
           <p>€ {detailsbook.price}</p>
-        </Col>
-        <Col md={6} className="mt-3">
-          <CommentArea asin={asin} />
-          <EditReview/>
         </Col>
       </Row>
     </Container>
